@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
 
 
 
@@ -30,3 +31,6 @@ Route::group(['middleware' => 'api'], function () {
 Route::group(['middleware' => 'api'], function () {
     Route::post('register', "UsersController@register");
 });
+
+
+Route::get('/users', [UsersController::class, 'index']);
