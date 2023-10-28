@@ -8,8 +8,16 @@ use Illuminate\Support\Facades\Log;
 class UsersController extends Controller
 {
     //ユーザー追加に入力されたユーザーが格納される
-    public function register()
+    public function index()
+    {
+        var_dump("成功しました");
+    }
+
+
+    //ユーザー追加に入力されたユーザーが格納される
+    public function login(Request $request)
     {
         Log::info("👹");
+        Log::info($request);
     }
 }
