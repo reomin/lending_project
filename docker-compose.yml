@@ -16,7 +16,7 @@ services:
     volumes:
       - mysql-volume:/var/lib/mysql
     environment:
-      MYSQL_DATABASE: bulletin-board
+      MYSQL_DATABASE: lending
       MYSQL_ROOT_PASSWORD: password
 
   phpmyadmin:
@@ -30,11 +30,15 @@ services:
       UPLOAD_LIMIT: 512M
     ports:
       - "8080:80"
-  maildev:
-    image: maildev/maildev
+  frontend:
+    build:
+      context: .
+      dockerfile: ./frontend/Dockerfile
+    volumes:
+      - ./frontend/src:/app
+    command: "yarn dev"
     ports:
-      - "1080:1080"
-      - "1025:1025"
+      - 3000:3000
 
 volumes:
   mysql-volume:
