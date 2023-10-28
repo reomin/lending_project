@@ -34,3 +34,4 @@ Route::group(['middleware' => 'api'], function () {
 
 
 Route::get('/users', [UsersController::class, 'index']);
+Route::post('/login', [UsersController::class, 'login']);

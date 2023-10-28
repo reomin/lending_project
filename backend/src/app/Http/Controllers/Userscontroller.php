@@ -12,4 +12,12 @@ class UsersController extends Controller
     {
         var_dump("成功しました");
     }
+
+
+    //ユーザー追加に入力されたユーザーが格納される
+    public function login(Request $request)
+    {
+        Log::info("👹");
+        Log::info($request);
+    }
 }
