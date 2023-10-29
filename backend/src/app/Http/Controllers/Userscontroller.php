@@ -16,26 +16,26 @@ class UsersController extends Controller
     }
 
 
-    public function login(Request $request)
-    {
-        //バリデーションを設置
-        $user_info = $request->validate([
-            'name' => ['required'],
-            'password' => ['required'],
-        ]);
+    // public function login(Request $request)
+    // {
+    //     //バリデーションを設置
+    //     $user_info = $request->validate([
+    //         'name' => ['required'],
+    //         'password' => ['required'],
+    //     ]);
 
-        Log::info("👹");
-        Log::info($user_info);
-        die;
+    //     Log::info("👹");
+    //     Log::info($user_info);
+    //     die;
 
-        // ログインに成功したとき
-        if (Auth::attempt($user_info)) {
-            Log::info("成功しました");
-            $request->session()->regenerate();
-            return redirect()->route('dashboard');
-        }
+    //     // ログインに成功したとき
+    //     if (Auth::attempt($user_info)) {
+    //         Log::info("成功しました");
+    //         $request->session()->regenerate();
+    //         return redirect()->route('dashboard');
+    //     }
 
-        Log::info("👹");
-        Log::info($request);
-    }
+    //     Log::info("👹");
+    //     Log::info($request);
+    // }
 }
