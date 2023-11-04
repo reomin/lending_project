@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Items;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
 
 class ItemsController extends Controller
 {
@@ -14,7 +16,11 @@ class ItemsController extends Controller
      */
     public function index()
     {
-        var_dump("こんにちは");
+        Log::warning("こんにちは");
+        $object = new Items();
+        //users テーブルのデータを User Model のgetData メソッド経由で取得する
+        $data = $object->getData();
+        return $data;
     }
 
     /**
