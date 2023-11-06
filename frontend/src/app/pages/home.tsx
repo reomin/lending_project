@@ -1,39 +1,51 @@
-export default function Home() {
+"use client";
 
-  return (
+import ItemLists from "@/components/ItemList";
+import AddItems from "@/components/AddItems";
 
-<div className="flow-root m-8">
-  <dl className="-my-3 divide-y divide-gray-100 text-sm">
-    <div className="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-      <dt className="font-medium text-gray-900">Title</dt>
-      <dd className="text-gray-700 sm:col-span-2">Mr</dd>
+
+
+type Items ={
+  id: string,
+  title: string,
+  stock: number
+}
+
+//dummy data
+const props = [
+  {
+    "id":1,
+    "title": "靴",
+    "stock": 3
+  },
+  {
+    "id": 2,
+    "title": "靴下",
+    "stock": 3
+  }
+]
+
+
+// export async function getServerSideProps() {
+//   //コンテナのIPアドレス
+//   const res = await fetch(`http://172.26.0.2:8000/api/items`)
+//   const items = await JSON.parse(JSON.stringify(res))
+//   return { props: { items } }
+// }
+
+export default function Home(props: {items: Items[] | null}) {
+return (
+
+<main className="flex flex-col items-center justify-center min-h-screen py-2 bg-gray-200">
+  <h1 className="text-4xl font bold text-gray-700 mt-32">
+    Itemの貸出リスト
+  </h1>
+  <div className="w-full max-w-xl mt-5">
+    <div className="w-full px-8 py-6 bg-white shadow-md rounded-lg">
+    <AddItems items={[]}/>
+    <ItemLists items={[]}/>
     </div>
-
-    <div className="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-      <dt className="font-medium text-gray-900">Name</dt>
-      <dd className="text-gray-700 sm:col-span-2">John Frusciante</dd>
-    </div>
-
-    <div className="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-      <dt className="font-medium text-gray-900">Occuputation</dt>
-      <dd className="text-gray-700 sm:col-span-2">Guitarist</dd>
-    </div>
-
-    <div className="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-      <dt className="font-medium text-gray-900">Salary</dt>
-      <dd className="text-gray-700 sm:col-span-2">$1,000,000+</dd>
-    </div>
-
-    <div className="grid grid-cols-1 gap-1 py-3 sm:grid-cols-3 sm:gap-4">
-      <dt className="font-medium text-gray-900">Bio</dt>
-      <dd className="text-gray-700 sm:col-span-2">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Et facilis
-        debitis explicabo doloremque impedit nesciunt dolorem facere, dolor
-        quasi veritatis quia fugit aperiam aspernatur neque molestiae labore
-        aliquam soluta architecto?
-      </dd>
-    </div>
-  </dl>
-</div>
+  </div>
+</main>
   )
 }

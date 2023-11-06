@@ -14,7 +14,6 @@ export default function Login() {
         withCredentials: true,
     });
 
-    console.log(http);
     const onSubmitHandler = async (e:any) => {
         e.preventDefault()
 
@@ -51,7 +50,7 @@ export default function Login() {
   return (
     <div className="bg-yellow-400 dark:bg-gray-800 h-screen overflow-hidden flex items-center justify-center">
         <div className="bg-white lg:w-6/12 md:7/12 w-8/12 shadow-3xl rounded-xl">
-            <div className="bg-gray-800 shadow shadow-gray-200 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-4 md:p-8">
+            <div className="bg-gray-300 shadow shadow-gray-200 absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-4 md:p-8">
                 <h1>Lending Management App</h1>
             </div>
             <form onSubmit={onSubmitHandler} className="p-12 md:p-24">
